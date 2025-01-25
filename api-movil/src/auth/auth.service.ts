@@ -35,7 +35,7 @@ export class AuthService {
 
 
      if(!admin){
-            return new UnauthorizedException(new MessageDto('No autorizado'))
+            return new UnauthorizedException(new MessageDto('No se autirzo a realaizar esta operacion'))
     
         }
         

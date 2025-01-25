@@ -7,9 +7,10 @@ import { CategoriasModule } from './libros/componentes/categorias/categorias.mod
 import { PrestamosModule } from './libros/componentes/prestamos/prestamos.module';
 import { BibliotecarioModule } from './usuarios/bibliotecario/bibliotecario.module';
 import { EstudianteModule } from './usuarios/estudiante/estudiante.module';
+import { AdminModule } from './usuarios/admin/admin.module';
 
 @Module({
-    imports: [RolesModule,LibrosModule,CategoriasModule,PrestamosModule,BibliotecarioModule,EstudianteModule],
+    imports: [AdminModule,RolesModule,LibrosModule,CategoriasModule,PrestamosModule,BibliotecarioModule,EstudianteModule],
     controllers: [],
     providers: [],
 })

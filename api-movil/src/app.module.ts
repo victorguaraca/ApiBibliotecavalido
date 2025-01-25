@@ -32,7 +32,7 @@ import { join } from 'path';
         entities: [__dirname + '/**/*.entity{.ts,.js}'],
         synchronize: true,
         logging: false,
-        dropSchema: true, 
+        dropSchema: false, 
       }),
       inject: [ConfigService],
 

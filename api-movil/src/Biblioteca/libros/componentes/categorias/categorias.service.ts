@@ -6,6 +6,7 @@ import { Like, Repository } from 'typeorm';
 import { CategoriaDTO } from './dto/update-categoria.dto';
 import { ImagenCategoria } from './imagen-categoria/entities/imagen-categoria.entity';
 import { CreateImagenCategoriaDto } from './imagen-categoria/dto/create-imagen-categoria.dto';
+import { Libros } from '../../entities/libro.entity';
 
 
 
@@ -14,6 +15,9 @@ export class CategoriasService {
   constructor(
     @InjectRepository(Categoria)
     private readonly categoriaRepository: Repository<Categoria>,
+    @InjectRepository(Libros)
+    private readonly librosRepository: Repository<Libros>,
+
 
     @InjectRepository(ImagenCategoria)
     private readonly imagenCategoriaRepository: Repository<ImagenCategoria>,
@@ -31,5 +35,12 @@ export class CategoriasService {
   // Guardar la imagen asociada a la categoría
   async saveImage(imagenCategoria: ImagenCategoria): Promise<ImagenCategoria> {
     return await this.imagenCategoriaRepository.save(imagenCategoria);
+  }
+
+  async findLibrosByCategoria(categoriaId: number): Promise<Libros[]> {
+    return this.librosRepository.find({
+      where: { categoria: { id: categoriaId } },  // Filtrar libros por categoría
+      relations: ['categoria','imagenes'],  // Asegúrate de incluir la relación con la categoría
+    });
   }
 }

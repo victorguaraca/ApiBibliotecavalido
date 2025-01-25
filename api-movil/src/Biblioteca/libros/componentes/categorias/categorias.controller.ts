@@ -8,6 +8,7 @@ import { Categoria } from './entities/categoria.entity';
 import { FileFieldsInterceptor, FileInterceptor, FilesInterceptor } from '@nestjs/platform-express';
 import { CloudinaryStorageService } from 'src/services/cloudinaryStorageService';
 import { ImagenCategoria } from './imagen-categoria/entities/imagen-categoria.entity';
+import { Libros } from '../../entities/libro.entity';
 @ApiTags('categorias') // Etiqueta de Swagger
 
 @Controller('categorias')
@@ -47,5 +48,11 @@ export class CategoriasController {
       message: 'Categoría creada con imagen',
       categoria,
     };
+  }
+
+
+  @Get(':id/libros')
+  async findLibrosByCategoria(@Param('id') id: number): Promise<Libros[]> {
+    return this.categoriasService.findLibrosByCategoria(id);
   }
 }

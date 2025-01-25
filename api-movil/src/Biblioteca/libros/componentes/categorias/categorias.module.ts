@@ -12,7 +12,7 @@ import { LibrosModule } from '../../libros.module';
 
 @Module({
 
-  imports:[TypeOrmModule.forFeature([Categoria]),
+  imports:[TypeOrmModule.forFeature([Categoria,Libros]),
 ImagenCategoriaModule
 ],
   controllers: [CategoriasController],

@@ -3,7 +3,8 @@ import { Rol } from 'src/Biblioteca/roles/entities/role.entity';
 import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, ManyToOne, JoinColumn, ManyToMany, JoinTable, OneToMany } from 'typeorm';
 import { ImagenBibliotecario } from '../imagen-bibliotecario/entities/imagen-bibliotecario.entity';
 
-@Entity()
+
+@Entity('bibliotecario')
 export class Bibliotecario {
   @PrimaryGeneratedColumn('increment')
   id: number;

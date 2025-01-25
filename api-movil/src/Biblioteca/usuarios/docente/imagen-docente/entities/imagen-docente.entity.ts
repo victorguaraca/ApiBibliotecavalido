@@ -1,5 +1,6 @@
-import { Column, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 import { Docente } from "../../entities/docente.entity";
+@Entity('docenteimagenes')
 
 export class ImagenDocente {
     

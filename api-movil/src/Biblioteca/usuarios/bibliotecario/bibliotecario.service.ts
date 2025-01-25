@@ -108,6 +108,8 @@ export class BibliotecarioService {
     return this.prestamoRepository.save(prestamo);
   }
 
+  
+
   async crear(createBibliotecarioDto: CreateBibliotecarioDto): Promise<Bibliotecario> {
     const bibliotecario = this.bibliotecarioRepository.create(createBibliotecarioDto);
     return this.bibliotecarioRepository.save(bibliotecario);

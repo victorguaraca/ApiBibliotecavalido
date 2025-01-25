@@ -1,6 +1,7 @@
-import { Column, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 import { Estudiante } from "../../entities/estudiante.entity";
 
+@Entity('estudiante')
 export class ImagenEstudiante {
 
     @PrimaryGeneratedColumn('increment')

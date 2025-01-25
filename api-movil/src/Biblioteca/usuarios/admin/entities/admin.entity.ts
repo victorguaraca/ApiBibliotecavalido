@@ -5,7 +5,7 @@ import { BeforeInsert, BeforeUpdate, Column, Entity, JoinTable, ManyToMany, OneT
 import { ImagenAdmin } from "../imagen-admin/entities/imagen-admin.entity";
 
 
-@Entity()
+@Entity('admin')
 export class Admin {
 
     @PrimaryGeneratedColumn('increment')
@@ -22,6 +22,11 @@ export class Admin {
   
     @Column({type:'varchar',nullable:false,unique:false})
     password: string;
+
+    
+    @OneToMany(type => ImagenAdmin, imagen => imagen.admin)
+    imagenes: ImagenAdmin[];  // Relación de uno a muchos con ImagenAdmin
+
   
     @ManyToMany(type => Rol, rol => rol.Admin, {eager: true})
     @JoinTable({
@@ -40,7 +45,4 @@ export class Admin {
         }
 
 
-        @OneToMany(type => ImagenAdmin, imagen => imagen.admin)
-        imagenes: ImagenAdmin[];  // Relación de uno a muchos con ImagenAdmin
-    
 }
